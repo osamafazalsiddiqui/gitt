@@ -1,0 +1,41 @@
+package com.example.projectpreview.adapters
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.projectpreview.R
+import com.example.projectpreview.models.Product
+
+
+class ProductListAdapter(var productList:MutableList<Product>): RecyclerView.Adapter<ProductListAdapter.FriendViewHolder>() {
+    public class FriendViewHolder(view: View): RecyclerView.ViewHolder(view){
+        val userImage: ImageView = view.findViewById(R.id.userImage)
+        val userName: TextView = view.findViewById(R.id.userName)
+        val userEmail: TextView = view.findViewById(R.id.userEmail)
+        val userPhone: TextView = view.findViewById(R.id.userPhone)
+        val userPrice:TextView = view.findViewById(R.id.userPrice)
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product,parent,false)
+        return FriendViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return productList.size
+    }
+
+    override fun onBindViewHolder(holder: FriendViewHolder, position: Int) {
+        val product = productList[position]
+        holder.userImage.setImageResource(product.image)
+        holder.userName.text = product.name
+        holder.userEmail.text = product.email
+        holder.userPhone.text = product.phone
+        holder.userPrice.text = product.price
+
+    }
+}
