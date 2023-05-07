@@ -3,3 +3,19 @@ acitivity_home.xml
 Product(create models -> classdata)
 HomeActivity
 ProductListAdapter(create adapters -> class)
+
+
+
+    id 'kotlin-android-extensions'
+    
+buildFeatures {
+        viewBinding = true
+    }
+    
+     buildFeatures {
+        viewBinding true
+    }
+    
+    
+    
+        id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
