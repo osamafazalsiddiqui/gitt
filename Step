@@ -1,0 +1,5 @@
+item_product.xml(create new layout)
+acitivity_home.xml
+Product(create models -> classdata)
+HomeActivity
+ProductListAdapter(create adapters -> class)
