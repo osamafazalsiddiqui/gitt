@@ -1,0 +1,33 @@
+package com.example.projectpreview
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import com.example.projectpreview.adapters.ProductListAdapter
+import com.example.projectpreview.models.Product
+import kotlinx.android.synthetic.main.activity_home.*
+
+class HomeActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+        rvFriends.adapter = ProductListAdapter(getProductList())
+
+    }
+    fun priceCalculation(view: View){
+        val intent = Intent(this@HomeActivity,MainActivity::class.java)
+        startActivity(intent)
+    }
+    private fun getProductList():MutableList<Product>{
+        val productList = mutableListOf<Product>()
+        productList.add(Product(R.drawable.ic_user, name = "Usman Ahmed", email = "usman.ahmed@gmail.com", phone = "+92 323 65125222", price = "100"))
+        productList.add(Product(R.drawable.ic_user, name = "Hammad Ahmed", email = "hammad.ahmed@gmail.com", phone = "+92 323 54525222",price = "100"))
+        productList.add(Product(R.drawable.ic_user, name = "Fahad Ahmed", email = "fahad.ahmed@gmail.com", phone = "+92 328 65125222",price = "100"))
+        productList.add(Product(R.drawable.ic_user, name = "Uzair Ahmed", email = "uzair.ahmed@gmail.com", phone = "+92 324 65125222",price = "100"))
+        productList.add(Product(R.drawable.ic_user, name = "Naveed Ahmed", email = "naveed.ahmed@gmail.com", phone = "+92 313 65125222",price = "100"))
+        productList.add(Product(R.drawable.ic_user, name = "Ahad Ahmed", email = "ahad.ahmed@gmail.com", phone = "+92 303 65125222",price = "100"))
+
+        return productList
+    }
+}
